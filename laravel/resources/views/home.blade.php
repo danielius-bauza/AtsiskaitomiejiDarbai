@@ -32,6 +32,15 @@
                         <p class="mt-4 text-base-content/60">This is your brand new Laravel application. Time to make it
                             sing (or chirp)!</p>
                     </div>
+                    @foreach ($chirps as $chirp)
+    <div class="card bg-base-100 shadow my-2">
+        <div class="card-body">
+            <strong>{{ $chirp['author'] }}</strong>
+            <p>{{ $chirp['message'] }}</p>
+            <small>{{ $chirp['time'] }}</small>
+        </div>
+    </div>
+@endforeach
                 </div>
             </div>
         </div>
