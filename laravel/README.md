@@ -17,3 +17,13 @@ PHP 8.2+, Composer, Node.js, Git
     php artisan serve
 
 Programa veikia adresu http://127.0.0.1:8000
+
+
+## Prisijungimas
+
+Paleidus `php artisan migrate --seed`, sukuriamas bandomasis vartotojas:
+
+- el. paštas: `danielius@example.com`
+- slaptažodis: `password`
+
+Naują paskyrą galima susikurti puslapyje `/register`.
