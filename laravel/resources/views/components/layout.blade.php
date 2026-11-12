@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="lt" data-theme="lofi">
+<html lang="lt" data-theme="emerald">
 
 <head>
     <meta charset="UTF-8">
