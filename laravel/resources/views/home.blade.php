@@ -6,8 +6,9 @@
 
         <div class="card bg-base-100 shadow mt-8">
             <div class="card-body">
-                <form method="POST" action="/chirps">
-                    @csrf
+                @auth
+                    <form method="POST" action="/chirps">
+                        @csrf
 
                     <div class="form-control w-full">
                         <textarea name="message" rows="4" maxlength="255" required
@@ -20,10 +21,16 @@
                         @enderror
                     </div>
 
-                    <div class="mt-4 flex items-center justify-end">
-                        <button type="submit" class="btn btn-primary btn-sm">Chirp</button>
-                    </div>
-                </form>
+                        <div class="mt-4 flex items-center justify-end">
+                            <button type="submit" class="btn btn-primary btn-sm">Chirp</button>
+                        </div>
+                    </form>
+                @else
+                    <p class="text-base-content/60">
+                        <a href="/login" class="link">Sign in</a> or
+                        <a href="/register" class="link">sign up</a> to post a chirp.
+                    </p>
+                @endauth
             </div>
         </div>
 
