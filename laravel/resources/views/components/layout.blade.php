@@ -18,8 +18,16 @@
             <a href="/" class="btn btn-ghost text-xl">{{ config('app.name') }}</a>
         </div>
         <div class="navbar-end gap-2">
-            <a href="#" class="btn btn-ghost btn-sm">Sign In</a>
-            <a href="#" class="btn btn-primary btn-sm">Sign Up</a>
+            @auth
+                <span class="text-sm">{{ auth()->user()->name }}</span>
+                <form method="POST" action="/logout">
+                    @csrf
+                    <button type="submit" class="btn btn-ghost btn-sm">Logout</button>
+                </form>
+            @else
+                <a href="#" class="btn btn-ghost btn-sm">Sign In</a>
+                <a href="/register" class="btn btn-primary btn-sm">Sign Up</a>
+            @endauth
         </div>
     </nav>
 
