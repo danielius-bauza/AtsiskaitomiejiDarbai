@@ -20,7 +20,9 @@ class ChirpController extends Controller
             'message' => 'required|string|max:255',
         ]);
 
-        Chirp::create($validated);
+        $chirp = new Chirp($validated);
+        $chirp->user_id = auth()->id();
+        $chirp->save();
 
         return redirect('/')->with('success', 'Your chirp has been posted!');
     }
