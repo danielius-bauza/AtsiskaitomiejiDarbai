@@ -29,11 +29,15 @@ class ChirpController extends Controller
 
     public function edit(Chirp $chirp)
     {
+        abort_unless($chirp->user_id === auth()->id(), 403);
+
         return view('chirps.edit', compact('chirp'));
     }
 
     public function update(Request $request, Chirp $chirp)
     {
+        abort_unless($chirp->user_id === auth()->id(), 403);
+
         $validated = $request->validate([
             'message' => 'required|string|max:255',
         ]);
@@ -45,6 +49,8 @@ class ChirpController extends Controller
 
     public function destroy(Chirp $chirp)
     {
+        abort_unless($chirp->user_id === auth()->id(), 403);
+
         $chirp->delete();
 
         return redirect('/')->with('success', 'Chirp deleted!');
